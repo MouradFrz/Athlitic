@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Login/Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('sass/login.css') }}">
@@ -21,16 +21,21 @@
             <p class="error">{{ Session::get('error') }}</p>
                 
             @endif
-            <form action="{{ route('user.check') }}" method="POST">
+            <form action="{{ route('admin.check') }}" method="POST">
                 @csrf
-                <label for="">E-mail</label>
-                <input type="text" class="mb-2" name="email">
+                <label for="">Username</label>
+                <input type="text" class="mb-2" name="username">
+                <p class="error"> @error('username')
+                    {{ $message }}
+                @enderror</p>
                 <label for="">Password</label>
                 <input type="password" name="password" id="">
+                <p class="error"> @error('password')
+                    {{ $message }}
+                @enderror</p>
                 <a href="" class="mb-2">I forgot my password</a>
                 <input type="submit" value="Login" class="custom-button">
             </form>
-            <p>Don't have an account yet? <a href="{{ route('user.register') }}">Register</a></p>
         </div>
     </div>
 </body>

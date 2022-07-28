@@ -20,8 +20,14 @@
                     <h1>Ath<span>LIT</span>ic</h1>
                 </div>
                 <div class="nav-buttons">
+                    @auth('web')
+                    <a href="" class="custom-button">My orders</a>
+                        <a class="custom-button" href="{{ route('user.logout') }}">Logout</a>
+                    @endauth
+                    @guest
                     <a href="{{ route('user.login') }}" class="custom-button">Login</a>
                     <a href="" class="custom-button">Register</a>
+                    @endguest
                 </div>
             </nav>
         </div>
@@ -193,7 +199,9 @@
         const items = document.querySelectorAll('.ccarousel-item')
         const nextbtn = document.querySelector('.right')
         const prevbtn = document.querySelector('.left')
-
+        setInterval(() => {
+            nextbtn.click()
+        }, 5000);
         let i = 0
 
         nextbtn.addEventListener('click', () => {

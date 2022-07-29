@@ -1,7 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
+    "/sass/verifyemail.css": "/sass/verifyemail.css",
     "/sass/login.css": "/sass/login.css",
     "/sass/homepage.css": "/sass/homepage.css",
     "/css/app.css": "/css/app.css",
-    "/sass/verifyemail.css": "/sass/verifyemail.css"
+    "/sass/dashboard.css": "/sass/dashboard.css"
 }

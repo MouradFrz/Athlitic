@@ -1,0 +1,126 @@
+@import "./variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.main{
+    background-color: blue;
+    width:  calc(100% - 45px);
+    height: 100px;
+    position: absolute;
+    right: 0;
+}
+body{
+    height: 200vh;
+}
+.sidebar{
+    background-color: $softblue;  
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    min-height: 100vh;
+    clip-path: polygon(0 0, 18% 0, 18% 100%, 0% 100%);
+    transition: 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    // 
+    
+}
+.sidebar.extend{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    .logo{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+.wrapper{
+    display: flex;
+}
+.logo {
+    clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+    transition: 0.4s ease;
+    display: flex;
+    padding: 1rem 0;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    span {
+        color: $red;
+    }
+    img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    h1 {
+        font-size: 2rem;
+        margin: 0;
+        font-weight: 600;
+        color: $darkgray;
+    }
+
+}
+.navigation{
+    ul{
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        li {
+            
+            a{
+                text-decoration: none;
+                display: block;
+                padding: 0.9rem 0.9rem 0.9rem 0.9rem;
+                color: $red;
+                &:hover{
+                    background-color: $blue;
+                }
+                i{
+                    margin-right: 0.9rem;
+                }
+            }
+            
+        }
+    } 
+}
+.logout{
+    margin-top: auto;
+    ul{
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        margin: 0;
+        
+        // align-items: flex-end;
+        li {
+            
+            a{
+                text-decoration: none;
+                display: block;
+                background-color: $red;
+                padding: 0.9rem 0.9rem 0.9rem 0.9rem;
+                color: White;
+                &:hover{
+                    background-color: $red-hover;
+                }
+                i{
+                    margin-right: 0.9rem;
+                }
+            }
+            .custom-button{
+                color: black;
+                background-color: $softblue;
+                padding: 0.9rem;
+                left: 0;
+                transform:translateX(0) rotate(0);
+                transition: 0.4s ease;
+                position: relative;
+                &:hover{
+                    background-color: $blue;
+                }
+                &.extend{
+                    transform:translateX(-100%) rotate(180deg);
+                    left: 100%;
+                }
+            }
+        }
+    }
+    
+}

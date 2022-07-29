@@ -101,6 +101,19 @@
             </div>
         </div>
     </div>
+    @auth
+    @empty(Auth::user()->email_verified_at)
+    <div class="email-notif-wrapper bg-warning py-3">
+        <div class="container">
+            <div class="email-notif">
+                <p class="m-0">You cannot place orders before verifying your email. <a href="{{ route('verification.notice') }}">Click here to verify your email</a></p>
+            </div>
+        </div>
+    </div>
+    @endempty
+    @endauth
+    
+ 
     <div class="latest-release-wrapper">
         <div class="container">
             <div class="latest-release">

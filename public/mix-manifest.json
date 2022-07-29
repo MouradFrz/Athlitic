@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/sass/login.css": "/sass/login.css",
     "/sass/homepage.css": "/sass/homepage.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/sass/verifyemail.css": "/sass/verifyemail.css"
 }

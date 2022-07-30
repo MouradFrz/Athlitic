@@ -1,11 +1,16 @@
 @import "./variables.scss";
 @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+    font-family: "Kanit", sans-serif;
+}
+.btn-close:focus,.btn-close:active{
+    box-shadow: none;
+}
 .main{
-    background-color: blue;
     width:  calc(100% - 45px);
-    height: 100px;
     position: absolute;
     right: 0;
+    background-color: rgba(240, 255, 253, 0.387);
 }
 body{
     height: 200vh;
@@ -22,7 +27,7 @@ body{
     display: flex;
     flex-direction: column;
     // 
-    
+border-right: 2px solid $red-hover;
 }
 .sidebar.extend{
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -69,6 +74,7 @@ body{
                 display: block;
                 padding: 0.9rem 0.9rem 0.9rem 0.9rem;
                 color: $red;
+                transition: 0.09s ease;
                 &:hover{
                     background-color: $blue;
                 }
@@ -80,8 +86,47 @@ body{
         }
     } 
 }
+.custom-button{
+    all: unset;
+    background-color: $red;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+    transition: 0.1s ease;
+    &:hover {
+        color: white;
+        background-color: $red-hover;
+    }
+}
+.close-button{
+    all: unset;
+    background-color: $softblue;
+    color: $red;
+    padding: 6px 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+    transition: 0.1s ease;
+    &:hover {
+        color: black;
+        background-color: $blue;
+    }
+}
 .logout{
     margin-top: auto;
+    .bi-arrow-right-square::before{
+        transform: scaleX(1);
+        transition: 0.4s ease;
+    }
+    .extend.bi-arrow-right-square::before{
+        transform: scaleX(-1);
+    }
     ul{
         list-style: none;
         padding: 0;
@@ -97,6 +142,7 @@ body{
                 background-color: $red;
                 padding: 0.9rem 0.9rem 0.9rem 0.9rem;
                 color: White;
+                
                 &:hover{
                     background-color: $red-hover;
                 }
@@ -112,11 +158,12 @@ body{
                 transform:translateX(0) rotate(0);
                 transition: 0.4s ease;
                 position: relative;
+                border: none;
                 &:hover{
                     background-color: $blue;
                 }
                 &.extend{
-                    transform:translateX(-100%) rotate(180deg);
+                    transform:translateX(-100%);
                     left: 100%;
                 }
             }
@@ -124,3 +171,34 @@ body{
     }
     
 }
+.selected{
+    background-color: $red;
+    color: $softblue !important;
+    &:hover{
+        background-color: $red-hover !important ;
+        color: $blue !important;
+
+    }
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $softblue; 
+    &:hover{
+        background-color: $blue;
+    }
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $red; 
+    border-radius: 2px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $red-hover; 
+  }

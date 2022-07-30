@@ -21803,6 +21803,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/homepage.scss":
 /*!**************************************!*\
   !*** ./resources/sass/homepage.scss ***!
@@ -21829,10 +21842,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/dashboard.scss":
-/*!***************************************!*\
-  !*** ./resources/sass/dashboard.scss ***!
-  \***************************************/
+/***/ "./resources/sass/adminlayout.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/adminlayout.scss ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/sass/ProductsManagement.scss":
+/*!************************************************!*\
+  !*** ./resources/sass/ProductsManagement.scss ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -21846,19 +21872,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./resources/sass/verifyemail.scss ***!
   \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/app.css":
-/*!*******************************!*\
-  !*** ./resources/css/app.css ***!
-  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22198,9 +22211,10 @@ process.umask = function() { return 0; };
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"sass/verifyemail": 0,
-/******/ 			"sass/dashboard": 0,
+/******/ 			"sass/adminlayout": 0,
 /******/ 			"sass/login": 0,
 /******/ 			"sass/homepage": 0,
+/******/ 			"sass/ProductsManagement": 0,
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
@@ -22251,12 +22265,13 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/dashboard","sass/login","sass/homepage","css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/dashboard","sass/login","sass/homepage","css/app"], () => (__webpack_require__("./resources/sass/homepage.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/dashboard","sass/login","sass/homepage","css/app"], () => (__webpack_require__("./resources/sass/login.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/dashboard","sass/login","sass/homepage","css/app"], () => (__webpack_require__("./resources/sass/dashboard.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/dashboard","sass/login","sass/homepage","css/app"], () => (__webpack_require__("./resources/sass/verifyemail.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["sass/verifyemail","sass/dashboard","sass/login","sass/homepage","css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/adminlayout","sass/login","sass/homepage","sass/ProductsManagement","css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/adminlayout","sass/login","sass/homepage","sass/ProductsManagement","css/app"], () => (__webpack_require__("./resources/sass/homepage.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/adminlayout","sass/login","sass/homepage","sass/ProductsManagement","css/app"], () => (__webpack_require__("./resources/sass/login.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/adminlayout","sass/login","sass/homepage","sass/ProductsManagement","css/app"], () => (__webpack_require__("./resources/sass/adminlayout.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/adminlayout","sass/login","sass/homepage","sass/ProductsManagement","css/app"], () => (__webpack_require__("./resources/sass/ProductsManagement.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/verifyemail","sass/adminlayout","sass/login","sass/homepage","sass/ProductsManagement","css/app"], () => (__webpack_require__("./resources/sass/verifyemail.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["sass/verifyemail","sass/adminlayout","sass/login","sass/homepage","sass/ProductsManagement","css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

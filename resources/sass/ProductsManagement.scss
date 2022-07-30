@@ -1,0 +1,62 @@
+@import "./variables.scss";
+.nav-bar{
+    border-bottom: 2px solid $red;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    h1{
+        margin: 0;
+    }
+}
+.custom-input{
+    outline: none;
+           
+    border: 1px solid gray;
+resize:none ;
+padding: 4px 8px;   
+}
+.products{
+    display: flex;
+    padding: 3rem 4rem;
+    flex-wrap: wrap;
+    .product{
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        border: 4px solid white;
+
+        .product-image{
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .product-info{
+            padding: 1.4rem 1rem;
+            padding-bottom: 0;
+            .title{
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+            .desc{
+                font-size: 0.9rem;
+                font-weight: 300;
+                height: 80px;
+            }
+            .promo,.original{
+                font-size: 1.6rem;
+                 color: green;
+            }
+            .line-through{
+                text-decoration: line-through;
+                font-size: 1rem;
+                color: gray;
+            }
+            .custom-button{
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+}

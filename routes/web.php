@@ -61,5 +61,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
         Route::get('logout',[AdminController::class,'logout'])->name('logout');
         Route::get('dashboard',[AdminController::class,'DashboardPage'])->name('dashboard');
+        Route::get('products-management',[AdminController::class,'ProductsManagementPage'])->name('ProductsManagement');
+        Route::post('add-product',[AdminController::class,'AddProduct'])->name('AddProduct');
     });
 });

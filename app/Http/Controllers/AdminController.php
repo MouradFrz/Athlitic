@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\File as File;
 
 class AdminController extends Controller
 {
@@ -45,7 +46,7 @@ class AdminController extends Controller
             'image'=>'required',
             'category'=>'required|regex:/^[a-zA-Z0-9\s]+$/|max:45',
             'for'=>'required|regex:/^[a-zA-Z0-9\s]+$/|max:45',
-            'collection'=>'regex:/^[a-zA-Z0-9\s]+$/|max:45',
+            'collection'=>'max:45',
             'price'=>'required|numeric'
         ]);
 
@@ -89,13 +90,28 @@ class AdminController extends Controller
         $product->collection = $request->collection;
         $product->price = $request->price;
         $product->promo = $request->sale;
+
+        if($request->image){
+            try{
+                File::delete(public_path("img/products/{$product->image}"));
+                $imageName = explode('.',$product->image)[0].'.'.$request->image->extension();
+                Product::where('id',$id)->update(['image'=>$imageName]);
+                $request->image->move(public_path('img\products'), $imageName);
+            }catch(Exception $e){
+                return redirect()->back()->with('success','Something went wrong!');
+            }
+
+        }
+    
     
         $product->save();
         return redirect()->back()->with('success','Product successfully edited!');
     }
     public function DeleteProduct($id)
     {
-        Product::find($id)->delete();
+        $product = Product::find($id);
+        File::delete(public_path("img/products/{$product->image}"));
+        $product->delete();
         return redirect()->route('admin.ProductsManagement')->with('success','Product deleted!');
     }
 }

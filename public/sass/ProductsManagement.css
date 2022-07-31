@@ -1,22 +1,3 @@
-.nav-bar {
-  border-bottom: 2px solid #FC7171;
-  padding: 5px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  white-space: nowrap;
-}
-.nav-bar h1 {
-  margin: 0;
-}
-
-.custom-input {
-  outline: none;
-  border: 1px solid gray;
-  resize: none;
-  padding: 4px 8px;
-}
-
 .products {
   display: flex;
   padding: 3rem 4rem;

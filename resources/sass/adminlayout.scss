@@ -6,15 +6,24 @@
 .btn-close:focus,.btn-close:active{
     box-shadow: none;
 }
+.nav-bar{
+    border-bottom: 2px solid $red;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    h1{
+        margin: 0;
+    }
+}
 .main{
     width:  calc(100% - 45px);
     position: absolute;
     right: 0;
     background-color: rgba(240, 255, 253, 0.387);
 }
-body{
-    height: 200vh;
-}
+
 .sidebar{
     background-color: $softblue;  
     position: fixed;
@@ -101,6 +110,9 @@ border-right: 2px solid $red-hover;
         color: white;
         background-color: $red-hover;
     }
+    &:disabled{
+        background-color: gray;
+    }
 }
 .close-button{
     all: unset;
@@ -117,6 +129,13 @@ border-right: 2px solid $red-hover;
         color: black;
         background-color: $blue;
     }
+}
+.custom-input{
+    outline: none;
+           
+    border: 1px solid gray;
+resize:none ;
+padding: 4px 8px;   
 }
 .logout{
     margin-top: auto;

@@ -120,7 +120,7 @@
                             @endif
                         </p>
                     </div>
-                    <a href="" class="custom-button">Edit Product</a>
+                    <a href="{{ route('admin.ProductDetails',$product->id) }}" class="custom-button">Edit Product</a>
                 </div>
             @endforeach
 

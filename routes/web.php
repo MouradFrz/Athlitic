@@ -63,5 +63,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('dashboard',[AdminController::class,'DashboardPage'])->name('dashboard');
         Route::get('products-management',[AdminController::class,'ProductsManagementPage'])->name('ProductsManagement');
         Route::post('add-product',[AdminController::class,'AddProduct'])->name('AddProduct');
+        Route::get('product-details/{id}',[AdminController::class,'ProductPage'])->name('ProductDetails');
+        Route::post('edit-product/{id}',[AdminController::class,'EditProduct'])->name('EditProduct');
+        Route::post('delete-product/{id}',[AdminController::class,'DeleteProduct'])->name('DeleteProduct');
     });
 });

@@ -1,0 +1,11 @@
+.main-section {
+  max-width: 100%;
+  display: flex;
+  padding: 3rem 4rem;
+  justify-content: space-evenly;
+}
+.main-section img {
+  width: 40%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

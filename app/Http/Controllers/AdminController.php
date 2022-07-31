@@ -62,10 +62,40 @@ class AdminController extends Controller
         $product->collection=$request->collection;
 
         $product->save();
-
-
-
-
         return redirect()->back()->with('success','Product added succesfully');
+    }
+
+    public function ProductPage($id){
+        return view('admin.ProductDetails',['product'=>Product::find($id)]);
+    }
+    public function EditProduct(Request $request,$id){
+        $request->validate([
+            'name'=>'required|regex:/^[a-zA-Z0-9\s]+$/|max:45',
+            'description'=>'required|regex:/^[a-zA-Z0-9\s]+$/|max:10000',
+            'sale'=>'max:100|numeric|nullable',
+            'category'=>'required|regex:/^[a-zA-Z0-9\s]+$/|max:45',
+            'for'=>'required|regex:/^[a-zA-Z0-9\s]+$/|max:45',
+            'collection'=>'max:45|nullable',
+            'price'=>'required|numeric'
+        ]);
+
+        // dd($request->category);
+
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->category = $request->category;
+        $product->for = $request->for;
+        $product->collection = $request->collection;
+        $product->price = $request->price;
+        $product->promo = $request->sale;
+    
+        $product->save();
+        return redirect()->back()->with('success','Product successfully edited!');
+    }
+    public function DeleteProduct($id)
+    {
+        Product::find($id)->delete();
+        return redirect()->route('admin.ProductsManagement')->with('success','Product deleted!');
     }
 }

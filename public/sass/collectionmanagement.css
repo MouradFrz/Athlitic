@@ -1,0 +1,18 @@
+.collections {
+  padding: 4rem 2rem;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.collections .collection {
+  display: flex;
+  gap: 4rem;
+  max-height: 400px;
+  align-items: flex-start;
+}
+.collections .collection img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 300px;
+  height: 400px;
+}

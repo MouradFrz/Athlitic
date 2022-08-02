@@ -30,12 +30,12 @@
     top: 0;
     left: 0;
     width: 250px;
-    min-height: 100vh;
+    height: 100vh;
     clip-path: polygon(0 0, 18% 0, 18% 100%, 0% 100%);
     transition: 0.4s ease;
     display: flex;
     flex-direction: column;
-    // 
+    
 border-right: 2px solid $red-hover;
 }
 .sidebar.extend{
@@ -76,6 +76,10 @@ border-right: 2px solid $red-hover;
         list-style: none;
         padding: 0;
         width: 100%;
+        overflow-y: auto;
+        max-height:calc(100vh - 178px);
+        padding: 0 !important;
+        margin: 0;
         li {
             
             a{

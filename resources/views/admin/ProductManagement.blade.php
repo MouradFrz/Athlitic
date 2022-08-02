@@ -39,7 +39,10 @@
                         </select>
                         <label for="">Collection</label>
                         <select class="custom-input" name="collection" id="">
-                            <option value="">None</option>
+                            @foreach ($collections as $collection)
+                            <option value="{{ $collection->id }}">{{ $collection->name }}</option>
+                            @endforeach
+                            
                         </select>
                     </form>
                 </div>

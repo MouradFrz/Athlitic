@@ -18,5 +18,8 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/login.scss','public/sass')
     .sass('resources/sass/adminlayout.scss','public/sass')
     .sass('resources/sass/ProductsManagement.scss','public/sass')
+    .sass('resources/sass/collectionmanagement.scss','public/sass')
     .sass('resources/sass/ProductDetails.scss','public/sass')
+    .sass('resources/sass/collectiondetails.scss','public/sass')
+    .sass('resources/sass/StockManagement.scss','public/sass')
     .sass('resources/sass/verifyemail.scss','public/sass');

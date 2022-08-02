@@ -1,0 +1,27 @@
+.stocks {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.stocks .stock {
+  display: flex;
+  width: 48%;
+  border: 1px solid #FC7171;
+  max-width: 500px;
+  max-height: 350px;
+}
+.stocks .stock .stock-info {
+  padding: 10px 8px;
+  width: 100%;
+}
+.stocks .stock .stock-info.mute {
+  background-color: gray;
+}
+.stocks .stock img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 40%;
+  height: 100%;
+}

@@ -4,7 +4,10 @@
     "/sass/login.css": "/sass/login.css",
     "/sass/homepage.css": "/sass/homepage.css",
     "/sass/verifyemail.css": "/sass/verifyemail.css",
-    "/sass/ProductDetails.css": "/sass/ProductDetails.css",
+    "/sass/collectionmanagement.css": "/sass/collectionmanagement.css",
     "/sass/ProductsManagement.css": "/sass/ProductsManagement.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/sass/StockManagement.css": "/sass/StockManagement.css",
+    "/sass/collectiondetails.css": "/sass/collectiondetails.css",
+    "/sass/ProductDetails.css": "/sass/ProductDetails.css"
 }

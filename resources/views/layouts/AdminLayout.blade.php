@@ -34,14 +34,21 @@
                     @if (Route::current()->getName() == 'admin.dashboard') selected @endif
                     "><i
                                 class="bi bi-speedometer"></i><span>Dashboard</span></a></li>
-                    <li><a href="{{ route('admin.ProductsManagement') }}" class="
+                    <li><a href="{{ route('admin.ProductsManagement') }}"
+                            class="
                         @if (Route::current()->getName() == 'admin.ProductsManagement') selected @endif
                         "><i
                                 class="bi bi-shop"></i><span>Products Management</span></a></li>
-                    <li><a href="" class=""><i class="bi bi-collection"></i><span>Collection
+                    <li><a href="{{ route('admin.CollectionManagement') }}"
+                            class="@if (Route::current()->getName() == 'admin.CollectionManagement') selected @endif"><i
+                                class="bi bi-collection"></i><span>Collection
                                 Management</span></a></li>
                     <li><a href="" class=""><i class="bi bi-people"></i><span>Users List</span></a></li>
                     <li><a href="" class=""><i class="bi bi-list-ol"></i><span>Orders</span></a></li>
+                    <li><a href="" class=""><i class="bi bi-house-door"></i><span>Homepage
+                                Management</span></a></li>
+                    <li><a href="{{ route('admin.StockManagement') }}" class="@if (Route::current()->getName() == 'admin.StockManagement') selected @endif""><i class="bi bi-shop-window"></i><span>Quantity
+                                Management</span></a></li>
                 </ul>
             </div>
             <div class="logout">

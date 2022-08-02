@@ -125,8 +125,18 @@
                         </select>
                         <label for="">Collection</label>
                         <select disabled class="custom-input editable" name="collection" id="">
+                            
+                            <option default value="{{ $product->collection }}">
+                                @foreach ($collections as $collection)
+                                    @if ($collection->id==$product->collection)
+                                        {{ $collection->name }}
+                                    @endif
+                                @endforeach
+                            </option>
+                            @foreach ($collections as $collection)
+                            <option value="{{ $collection->id }}">{{ $collection->name }}</option>
+                            @endforeach
                             <option value="">None</option>
-                            <option default value="{{ $product->collection }}">{{ $product->collection }}</option>
                         </select>
                         <div class="d-flex justify-content-between mt-4">
                             <button class="close-button" id="prev" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete product</button>

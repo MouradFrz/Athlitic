@@ -66,5 +66,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('product-details/{id}',[AdminController::class,'ProductPage'])->name('ProductDetails');
         Route::post('edit-product/{id}',[AdminController::class,'EditProduct'])->name('EditProduct');
         Route::post('delete-product/{id}',[AdminController::class,'DeleteProduct'])->name('DeleteProduct');
+        Route::get('collection-management',[AdminController::class,'CollectionManagement'])->name('CollectionManagement');
+        Route::get('collection-details/{id}',[AdminController::class,'CollectionDetails'])->name('CollectionDetails');
+        Route::post('add-collection',[AdminController::class,'AddCollection'])->name('AddCollection');
+        Route::post('edit-collection',[AdminController::class,'EditCollection'])->name('EditCollection');
+        Route::get('stock-management',[AdminController::class,'StockManagement'])->name('StockManagement');
+        Route::post('add-stock',[AdminController::class,'AddStock'])->name('AddStock');
     });
 });

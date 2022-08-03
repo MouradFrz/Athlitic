@@ -43,11 +43,16 @@
                             class="@if (Route::current()->getName() == 'admin.CollectionManagement') selected @endif"><i
                                 class="bi bi-collection"></i><span>Collection
                                 Management</span></a></li>
-                    <li><a href="" class=""><i class="bi bi-people"></i><span>Users List</span></a></li>
-                    <li><a href="{{ route('admin.LoadOrders') }}" class="@if (Route::current()->getName() == 'admin.LoadOrders') selected @endif""><i class="bi bi-list-ol"></i><span>Orders</span></a></li>
-                    <li><a href="" class=""><i class="bi bi-house-door"></i><span>Homepage
+                    <li><a href="{{ route('admin.LoadOrders') }}"
+                            class="@if (Route::current()->getName() == 'admin.LoadOrders') selected @endif""><i
+                                class="bi bi-list-ol"></i><span>Orders</span></a></li>
+                    <li><a href="{{ route('admin.HomepageManagement') }}"
+                            class="@if (Route::current()->getName() == 'admin.HomepageManagement') selected @endif"><i
+                                class="bi bi-house-door"></i><span>Homepage
                                 Management</span></a></li>
-                    <li><a href="{{ route('admin.StockManagement') }}" class="@if (Route::current()->getName() == 'admin.StockManagement') selected @endif""><i class="bi bi-shop-window"></i><span>Quantity
+                    <li><a href="{{ route('admin.StockManagement') }}"
+                            class="@if (Route::current()->getName() == 'admin.StockManagement') selected @endif""><i
+                                class="bi bi-shop-window"></i><span>Quantity
                                 Management</span></a></li>
                 </ul>
             </div>

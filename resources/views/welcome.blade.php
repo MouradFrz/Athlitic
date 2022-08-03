@@ -21,12 +21,12 @@
                 </div>
                 <div class="nav-buttons">
                     @auth('web')
-                    <a href="" class="custom-button">My orders</a>
+                        <a href="" class="custom-button">My orders</a>
                         <a class="custom-button" href="{{ route('user.logout') }}">Logout</a>
                     @endauth
                     @guest
-                    <a href="{{ route('user.login') }}" class="custom-button">Login</a>
-                    <a href="" class="custom-button">Register</a>
+                        <a href="{{ route('user.login') }}" class="custom-button">Login</a>
+                        <a href="" class="custom-button">Register</a>
                     @endguest
                 </div>
             </nav>
@@ -102,51 +102,62 @@
         </div>
     </div>
     @auth
-    @empty(Auth::user()->email_verified_at)
-    <div class="email-notif-wrapper bg-warning py-3">
-        <div class="container">
-            <div class="email-notif">
-                <p class="m-0">You cannot place orders before verifying your email. <a href="{{ route('verification.notice') }}">Click here to verify your email</a></p>
+        @empty(Auth::user()->email_verified_at)
+            <div class="email-notif-wrapper bg-warning py-3">
+                <div class="container">
+                    <div class="email-notif">
+                        <p class="m-0">You cannot place orders before verifying your email. <a
+                                href="{{ route('verification.notice') }}">Click here to verify your email</a></p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    @endempty
+        @endempty
     @endauth
-    
- 
+
+
     <div class="latest-release-wrapper">
         <div class="container">
             <div class="latest-release">
                 <h1 class="my-5 fs-1">Latest Releases</h1>
                 <div>
-                    <div>
-                        <img class="presented-img" src="{{ asset('img/globals/latest1.png') }}" alt="">
+                    @foreach ($collections as $collection)
+                        @if ($collection->featured == 1)
+                            <div>
+                                <img class="presented-img" src="{{ asset('img/collections/' . $collection->image) }}"
+                                    alt="">
 
-                        <h1>TechWear QG</h1>
-                        <p class="subtitle">lorem ipsum</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum nesciunt molestiae
-                            cupiditate aliquid voluptate.</p>
-                        <button class="custom-button">Explore!</button>
-                    </div>
-                    <div>
+                                <h1>{{ $collection->name }}</h1>
 
+                                <p>{{ $collection->description }}</p>
+                                <button class="custom-button">Explore!</button>
+                            </div>
+                        @endif
+                    @endforeach
+                    @foreach ($collections as $collection)
+                        @if ($collection->featured == 2)
+                            <div>
+                                <h1>{{ $collection->name }}</h1>
+                                <p>{{ $collection->description }}</p>
+                                <button class="custom-button mb-4">Explore!</button>
+                                <img class="presented-img" src="{{ asset('img/collections/' . $collection->image) }}"
+                                    alt="">
+                            </div>
+                        @endif
+                    @endforeach
+                    @foreach ($collections as $collection)
+                        @if ($collection->featured == 3)
+                            <div>
+                                <img class="presented-img" src="{{ asset('img/collections/' . $collection->image) }}"
+                                    alt="">
 
-                        <h1>Athletism</h1>
-                        <p class="subtitle">lorem ipsum</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum nesciunt molestiae
-                            cupiditate aliquid voluptate.</p>
-                        <button class="custom-button" style="margin-bottom:16px">Explore!</button>
-                        <img class="presented-img" src="{{ asset('img/globals/latest2.png') }}" alt="">
-                    </div>
-                    <div>
-                        <img class="presented-img" src="{{ asset('img/globals/latest3.png') }}" alt="">
+                                <h1>{{ $collection->name }}</h1>
 
-                        <h1>StreetWear</h1>
-                        <p class="subtitle">lorem ipsum</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit earum nesciunt molestiae
-                            cupiditate aliquid voluptate.</p>
-                        <button class="custom-button">Explore!</button>
-                    </div>
+                                <p>{{ $collection->description }}</p>
+                                <button class="custom-button">Explore!</button>
+                            </div>
+                        @endif
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -172,7 +183,8 @@
                     <img src="{{ asset('img/globals/featured1.png') }}" alt="">
                     <div>
                         <h1>Reverse Mocha</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt deleniti necessitatibus, animi quae labore officia!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt deleniti necessitatibus,
+                            animi quae labore officia!</p>
                         <p><span class="old-price">$99.99</span><span class="new-price">$79.99</span></p>
                         <button class="custom-button">Purchase</button>
                     </div>
@@ -181,7 +193,8 @@
                     <img src="{{ asset('img/globals/featured2.png') }}" alt="">
                     <div>
                         <h1>Reverse Mocha</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt deleniti necessitatibus, animi quae labore officia!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt deleniti necessitatibus,
+                            animi quae labore officia!</p>
                         <p><span class="old-price">$99.99</span><span class="new-price">$79.99</span></p>
                         <button class="custom-button">Purchase</button>
                     </div>
@@ -192,7 +205,7 @@
                 <div class="ccarousel-item prev">
                     <h1>Item 4</h1>
                 </div>
-       
+
             </div>
         </div>
     </div>
@@ -218,7 +231,7 @@
         let i = 0
 
         nextbtn.addEventListener('click', () => {
-            if (i == items.length-1) {
+            if (i == items.length - 1) {
                 i = 0
             } else {
                 i++
@@ -248,7 +261,7 @@
                         element.classList.remove('prev')
                         element.classList.add('on')
                     }
-                    if (index == i-1) {
+                    if (index == i - 1) {
                         element.classList.remove('on')
                         element.classList.remove('next')
                         element.classList.add('prev')
@@ -266,7 +279,7 @@
         })
         prevbtn.addEventListener('click', () => {
             if (i == 0) {
-                i = items.length-1
+                i = items.length - 1
             } else {
                 i--
             }
@@ -296,10 +309,10 @@
                         element.classList.remove('prev')
                         element.classList.add('on')
                     }
-                    if (index == i-1) {
+                    if (index == i - 1) {
                         items.forEach(e => {
-                    e.classList.remove('next')  
-                })
+                            e.classList.remove('next')
+                        })
                         element.classList.remove('on')
                         element.classList.remove('next')
                         element.classList.add('prev')

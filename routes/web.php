@@ -36,9 +36,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 //TO MAKE A ROUTE REQUIRE THE EMAIL TO BE VERIFIED WE ADD 'verified' Middleware
 
-Route::middleware(['PreventBackHistory'])->get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::middleware(['PreventBackHistory'])->get('/',[UserController::class,'welcome'])->name('home');
 
 
 Route::prefix('user')->name('user.')->controller(UserController::class)->group(function(){
@@ -74,5 +72,7 @@ Route::prefix('admin')->name('admin.')->controller(AdminController::class)->grou
         Route::post('add-stock','AddStock')->name('AddStock');
         Route::get('orders','LoadOrders')->name('LoadOrders');
         Route::post('edit-order-state/{order}','EditOrderState')->name('EditOrderState');
+        Route::get('homepage-management','HomepageManagement')->name('HomepageManagement');
+        Route::post('edit-slot','EditSlotValue')->name('EditSlotValue');
     });
 });

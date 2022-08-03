@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,7 +10,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
-{
+{   public function welcome(){
+    return view('welcome')->with('collections',Collection::where('featured','!=',0)->get());
+}
     public function LoginPage(){
         return view('user.login');
     }

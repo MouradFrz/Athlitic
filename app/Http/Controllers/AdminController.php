@@ -45,7 +45,7 @@ class AdminController extends Controller
     public function ProductsManagementPage()
     {
 
-        return view('admin.ProductManagement',['products'=> Product::all(),'collections'=>Collection::all()]);
+        return view('admin.ProductManagement', ['products' => Product::all(), 'collections' => Collection::all()]);
     }
     public function AddProduct(Request $request)
     {
@@ -77,10 +77,10 @@ class AdminController extends Controller
 
     public function ProductPage($id)
     {
-        $product =Product::find($id);
+        $product = Product::find($id);
         if ($product) {
             $collections = Collection::all();
-            return view('admin.ProductDetails', ['product' => $product,'collections'=>$collections]);
+            return view('admin.ProductDetails', ['product' => $product, 'collections' => $collections]);
         } else {
             return redirect()->route('admin.dashboard');
         }
@@ -141,7 +141,7 @@ class AdminController extends Controller
     }
     public function CollectionManagement()
     {
-        return view('admin.CollectionManagement',['collections'=>Collection::all()]);
+        return view('admin.CollectionManagement', ['collections' => Collection::all()]);
     }
 
     public function AddCollection(Request $request)
@@ -153,16 +153,15 @@ class AdminController extends Controller
         ]);
         try {
 
-            $collectionImageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('img/collections'),$collectionImageName);
+            $collectionImageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('img/collections'), $collectionImageName);
 
             $collection = new Collection();
             $collection->name = $request->name;
-            $collection->description=$request->description;
-            $collection->image=$collectionImageName;
+            $collection->description = $request->description;
+            $collection->image = $collectionImageName;
             $collection->created_at = now();
             $collection->save();
-
         } catch (Exception $e) {
             dd($e);
         }
@@ -170,72 +169,98 @@ class AdminController extends Controller
 
         return redirect()->back()->with('success', 'Collection created successfully.');
     }
-    public function CollectionDetails($id){
+    public function CollectionDetails($id)
+    {
         $collection = Collection::find($id);
-        $products = Product::where('collection',$id)->get();
-        if($collection){
-            return view('admin.CollectionDetails',['collection'=>$collection,'products'=>$products]);
-        }else{
+        $products = Product::where('collection', $id)->get();
+        if ($collection) {
+            return view('admin.CollectionDetails', ['collection' => $collection, 'products' => $products]);
+        } else {
             return redirect()->route('admin.dashboard');
         }
     }
-    public function EditCollection(Request $request){
+    public function EditCollection(Request $request)
+    {
         $request->validate([
             'name' => 'required|regex:/^[a-zA-Z0-9\s]+$/|max:45',
             'description' => 'required|regex:/^[a-zA-Z0-9\s]+$/|max:10000',
-            'id'=>'required|exists:collections,id'
+            'id' => 'required|exists:collections,id'
         ]);
 
         $collection = Collection::find($request->id);
-  
 
 
-            $collection->name = $request->name;
-            $collection->description = $request->description;
+
+        $collection->name = $request->name;
+        $collection->description = $request->description;
 
 
-            if ($request->image) {
-                try {
-                    File::delete(public_path("img/collections/{$collection->image}"));
-                    $imageName = explode('.', $collection->image)[0] . '.' . $request->image->extension();
-                    Collection::where('id', $request->id)->update(['image' => $imageName]);
-                    $request->image->move(public_path('img\collections'), $imageName);
-                } catch (Exception $e) {
-                    echo $e;
-                    return redirect()->back()->with('success', 'Something went wrong!');
-                }
+        if ($request->image) {
+            try {
+                File::delete(public_path("img/collections/{$collection->image}"));
+                $imageName = explode('.', $collection->image)[0] . '.' . $request->image->extension();
+                Collection::where('id', $request->id)->update(['image' => $imageName]);
+                $request->image->move(public_path('img\collections'), $imageName);
+            } catch (Exception $e) {
+                echo $e;
+                return redirect()->back()->with('success', 'Something went wrong!');
             }
-            $collection->save();
-            return redirect()->back()->with('success', 'Collection successfully edited!');
+        }
+        $collection->save();
+        return redirect()->back()->with('success', 'Collection successfully edited!');
     }
-    public function StockManagement(){
-        
-        $stocks = Stock::join('products','stocks.product','=','products.id')->select(['stocks.id','initialcount','currentcount','size','stocks.created_at','name','image'])->orderBy('currentcount','DESC')->get();
-        return view('admin.StockManagement',['stocks'=>$stocks,'products'=>Product::all()]);
+    public function StockManagement()
+    {
+
+        $stocks = Stock::join('products', 'stocks.product', '=', 'products.id')->select(['stocks.id', 'initialcount', 'currentcount', 'size', 'stocks.created_at', 'name', 'image'])->orderBy('currentcount', 'DESC')->get();
+        return view('admin.StockManagement', ['stocks' => $stocks, 'products' => Product::all()]);
     }
-    public function AddStock(Request $request){
+    public function AddStock(Request $request)
+    {
         $request->validate([
-            'product'=>'required|numeric|exists:products,id',
-            'quantity'=>'required|numeric|max:9999',
-            'size'=>'alpha|max:3|required'
+            'product' => 'required|numeric|exists:products,id',
+            'quantity' => 'required|numeric|max:9999',
+            'size' => 'alpha|max:3|required'
         ]);
 
         $stock = new Stock();
         $stock->product = $request->product;
         $stock->size = $request->size;
-        $stock->initialcount=$request->quantity;
-        $stock->currentcount=$request->quantity;
+        $stock->initialcount = $request->quantity;
+        $stock->currentcount = $request->quantity;
         $stock->save();
 
-        return redirect()->back()->with('success','Stock added successfully!');
+        return redirect()->back()->with('success', 'Stock added successfully!');
     }
-    public function LoadOrders(){
+    public function LoadOrders()
+    {
 
-        $orders = Order::join('users','user_id','=','users.id')->orderBy('orders.created_at')->get(['email','total','orders.created_at','state','orders.id']);
-        return view('admin.Orders',['orders'=>$orders]);
+        $orders = Order::join('users', 'user_id', '=', 'users.id')->orderBy('orders.created_at')->get(['email', 'total', 'orders.created_at', 'state', 'orders.id']);
+        return view('admin.Orders', ['orders' => $orders]);
     }
-    public function EditOrderState(Order $order){
-        $order->update(['state'=>'delivered']);
+    public function EditOrderState(Order $order)
+    {
+        $order->update(['state' => 'delivered']);
         return $order;
+    }
+    public function HomepageManagement()
+    {
+        return view('admin.HomepageManagement', ['featured' => Collection::where('featured', '!=', '0')->get(), 'collections' => Collection::all()]);
+    }
+    public function EditSlotValue(Request $request)
+    {
+        $collection = Collection::where('featured', $request->slot)->first();
+        if ($collection) {
+            $collection->featured = 0;
+            $collection->save();
+        }
+        $newCollection = Collection::where('id',$request->collection)->first();
+        if($newCollection){
+            $newCollection->featured = $request->slot;
+            $newCollection->save();
+        }
+        
+      
+        return to_route('admin.HomepageManagement')->with('success','Slot edited succesfully');
     }
 }

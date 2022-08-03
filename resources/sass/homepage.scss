@@ -96,6 +96,7 @@ nav {
 }
 .latest-release div div{
     width: 300px;
+    max-height: 644px;
     border-radius: 5px;
     background-color:$softblue;
     position: relative;
@@ -125,6 +126,9 @@ nav {
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: 0 100%;
+    p{
+        font-weight: 300;
+    }
     }
     &:nth-child(3){
         background-image: url("../../public/img/globals/line3.png");
@@ -142,6 +146,8 @@ nav {
     .presented-img{
         width: 100%;
         z-index: 10;
+        max-height: 350px;
+        object-fit: cover;
     }
 }
 .latest-release{

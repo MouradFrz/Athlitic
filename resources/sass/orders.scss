@@ -1,0 +1,16 @@
+@import './variables.scss'; 
+.table-wrapper{
+    padding: 4rem 2rem;
+}
+div.dataTables_wrapper div.dataTables_filter input,div.dataTables_wrapper div.dataTables_length select,.page-item.active .page-link {
+   box-shadow: none;
+   &:focus{
+    border: 1px solid $red;
+    box-shadow: none;
+   }
+}
+    
+.action{
+    all: unset;
+    color: $red;
+}

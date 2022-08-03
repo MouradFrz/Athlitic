@@ -1,0 +1,16 @@
+.table-wrapper {
+  padding: 4rem 2rem;
+}
+
+div.dataTables_wrapper div.dataTables_filter input, div.dataTables_wrapper div.dataTables_length select, .page-item.active .page-link {
+  box-shadow: none;
+}
+div.dataTables_wrapper div.dataTables_filter input:focus, div.dataTables_wrapper div.dataTables_length select:focus, .page-item.active .page-link:focus {
+  border: 1px solid #FC7171;
+  box-shadow: none;
+}
+
+.action {
+  all: unset;
+  color: #FC7171;
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Collection;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Stock;
 use Exception;
@@ -227,5 +228,14 @@ class AdminController extends Controller
         $stock->save();
 
         return redirect()->back()->with('success','Stock added successfully!');
+    }
+    public function LoadOrders(){
+
+        $orders = Order::join('users','user_id','=','users.id')->orderBy('orders.created_at')->get(['email','total','orders.created_at','state','orders.id']);
+        return view('admin.Orders',['orders'=>$orders]);
+    }
+    public function EditOrderState(Order $order){
+        $order->update(['state'=>'delivered']);
+        return $order;
     }
 }

@@ -41,36 +41,38 @@ Route::middleware(['PreventBackHistory'])->get('/', function () {
 })->name('home');
 
 
-Route::prefix('user')->name('user.')->group(function(){
+Route::prefix('user')->name('user.')->controller(UserController::class)->group(function(){
     Route::middleware(['guest:web','PreventBackHistory'])->group(function(){
-        Route::get('login',[UserController::class,'LoginPage'])->name('login');
-        Route::get('register',[UserController::class,'RegisterPage'])->name('register');
-        Route::post('create',[UserController::class,'create'])->name('create');
-        Route::post('check',[UserController::class,'check'])->name('check');
+        Route::get('login','LoginPage')->name('login');
+        Route::get('register','RegisterPage')->name('register');
+        Route::post('create','create')->name('create');
+        Route::post('check','check')->name('check');
     });
     Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
-        Route::get('logout',[UserController::class,'logout'])->name('logout');
+        Route::get('logout','logout')->name('logout');
     });
 });
 
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->controller(AdminController::class)->group(function(){
     Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
-        Route::get('login',[AdminController::class,'LoginPage'])->name('login');
-        Route::post('check',[AdminController::class,'check'])->name('check');
+        Route::get('login','LoginPage')->name('login');
+        Route::post('check','check')->name('check');
     });
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
-        Route::get('logout',[AdminController::class,'logout'])->name('logout');
-        Route::get('dashboard',[AdminController::class,'DashboardPage'])->name('dashboard');
-        Route::get('products-management',[AdminController::class,'ProductsManagementPage'])->name('ProductsManagement');
-        Route::post('add-product',[AdminController::class,'AddProduct'])->name('AddProduct');
-        Route::get('product-details/{id}',[AdminController::class,'ProductPage'])->name('ProductDetails');
-        Route::post('edit-product/{id}',[AdminController::class,'EditProduct'])->name('EditProduct');
-        Route::post('delete-product/{id}',[AdminController::class,'DeleteProduct'])->name('DeleteProduct');
-        Route::get('collection-management',[AdminController::class,'CollectionManagement'])->name('CollectionManagement');
-        Route::get('collection-details/{id}',[AdminController::class,'CollectionDetails'])->name('CollectionDetails');
-        Route::post('add-collection',[AdminController::class,'AddCollection'])->name('AddCollection');
-        Route::post('edit-collection',[AdminController::class,'EditCollection'])->name('EditCollection');
-        Route::get('stock-management',[AdminController::class,'StockManagement'])->name('StockManagement');
-        Route::post('add-stock',[AdminController::class,'AddStock'])->name('AddStock');
+        Route::get('logout','logout')->name('logout');
+        Route::get('dashboard','DashboardPage')->name('dashboard');
+        Route::get('products-management','ProductsManagementPage')->name('ProductsManagement');
+        Route::post('add-product','AddProduct')->name('AddProduct');
+        Route::get('product-details/{id}','ProductPage')->name('ProductDetails');
+        Route::post('edit-product/{id}','EditProduct')->name('EditProduct');
+        Route::post('delete-product/{id}','DeleteProduct')->name('DeleteProduct');
+        Route::get('collection-management','CollectionManagement')->name('CollectionManagement');
+        Route::get('collection-details/{id}','CollectionDetails')->name('CollectionDetails');
+        Route::post('add-collection','AddCollection')->name('AddCollection');
+        Route::post('edit-collection','EditCollection')->name('EditCollection');
+        Route::get('stock-management','StockManagement')->name('StockManagement');
+        Route::post('add-stock','AddStock')->name('AddStock');
+        Route::get('orders','LoadOrders')->name('LoadOrders');
+        Route::post('edit-order-state/{order}','EditOrderState')->name('EditOrderState');
     });
 });

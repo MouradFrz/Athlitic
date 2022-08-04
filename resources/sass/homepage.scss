@@ -30,6 +30,13 @@ nav {
         color: $darkgray;
     }
 }
+.custom-input{
+    outline: none;
+           
+    border: 1px solid gray;
+resize:none ;
+padding: 4px 8px;   
+}
 .custom-button {
     all: unset;
     background-color: $red;
@@ -53,6 +60,7 @@ nav {
             position: relative;
         }
         display: flex;
+        align-items: center;
         .dropdown{
             display: none;
         }
@@ -225,7 +233,8 @@ nav {
             right: 0;
         }
         .ccarousel-item{
-            transition: left 1s ease-in-out, opacity 1s cubic-bezier(.44,.06,.98,-0.18);
+            //cubic-bezier(.44,.06,.98,-0.18)
+            transition: left 1s ease-in-out, opacity 1s ease-in-out 0.7s;
             // transition: top 1s ease-in-out;
             left: -400%;
             border-radius: 0.6rem;
@@ -314,6 +323,58 @@ nav {
         button{
             font-size: 1.5rem !important;
             box-shadow: 0px 0px 5px #000000; ;
+        }
+    }
+}
+footer{
+    background-color: $red;
+    padding: 3rem;
+    // height: 500px;
+    .signature{
+        color: $red;
+        
+    }
+    .footer-wrap{
+        height: 100%;
+        background-color: $softblue;
+        border-radius: 10px;
+        padding: 3rem 0 1.5rem 0;
+        .footer-aligner{
+            display: flex;
+            gap: 15vw;
+            .socials{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                a{
+                
+                        color: white;
+                        text-decoration: none;
+                        display: block;
+                        padding: 5px 10px;
+                        border-radius: 2px;
+                    &:nth-child(1){
+                        background: linear-gradient(to right, rgba(255, 255, 255, 0), #8134af);
+                        background-color: #F56040;
+                    }
+                    &:nth-child(2){
+                        background-color: #4267B2;
+                    }
+                }
+                
+            }
+            h1{
+                font-size:1.4rem;
+            }
+            ul{
+                margin: 0;
+                text-decoration: none;
+                list-style: none;
+                padding: 0;
+                li a {
+                    color: rgb(73, 73, 73);
+                }
+            }
         }
     }
 }

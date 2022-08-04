@@ -176,6 +176,7 @@ nav {
 
 .trending-wrapper {
   background-color: #FC7171;
+  padding-bottom: 80px;
 }
 
 .trending {
@@ -193,7 +194,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 80px;
 }
 .ccarousel-wrap .left, .ccarousel-wrap .right {
   padding: 5px 10px;
@@ -210,6 +210,7 @@ nav {
   background-color: white;
   color: black;
   transform: translate(0, -50%);
+  border-radius: 2px;
 }
 .ccarousel-wrap .right {
   color: black;
@@ -217,6 +218,7 @@ nav {
   right: 120px;
   background-color: white;
   transform: translate(0, -50%);
+  border-radius: 2px;
 }
 .ccarousel-wrap .ccarousel-cadre {
   position: relative;
@@ -235,7 +237,7 @@ nav {
   right: 0;
 }
 .ccarousel-wrap .ccarousel-cadre .ccarousel-item {
-  transition: 1s ease-in-out;
+  transition: left 1s ease-in-out, opacity 1s cubic-bezier(0.44, 0.06, 0.98, -0.18);
   left: -400%;
   border-radius: 0.6rem;
   display: flex;

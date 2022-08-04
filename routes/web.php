@@ -74,5 +74,7 @@ Route::prefix('admin')->name('admin.')->controller(AdminController::class)->grou
         Route::post('edit-order-state/{order}','EditOrderState')->name('EditOrderState');
         Route::get('homepage-management','HomepageManagement')->name('HomepageManagement');
         Route::post('edit-slot','EditSlotValue')->name('EditSlotValue');
+        Route::post('add-featured-product','AddFeaturedProduct')->name('AddFeaturedProduct');
+        Route::get('remove-featured-product/{product}','RemoveFeaturedProduct')->name('RemoveFeaturedProduct');
     });
 });

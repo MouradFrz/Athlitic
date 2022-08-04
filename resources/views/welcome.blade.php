@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('sass/homepage.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -170,16 +171,38 @@
         </div>
         <div class="ccarousel-wrap">
             <button class="left">
-                <p>&#8592</p>
+                <i class="bi bi-caret-left-fill"></i>
             </button>
             <button class="right">
-                <p>&#8594</p>
+                <i class="bi bi-caret-right-fill"></i>
             </button>
             <div class="ccarousel-cadre">
                 <div class="blur">
 
                 </div>
-                <div class="ccarousel-item on">
+
+                @foreach ($products as $index=>$product)
+                <div class="ccarousel-item @if ($index==0)
+                    on
+                    @elseif($index==1)
+                    next
+                    @elseif($index==count($products)-1)
+                    prev
+                @endif">
+                    <img src="{{ asset('img/products/'.$product->image) }}" alt="">
+                    <div>
+                        <h1>{{ $product->name }}</h1>
+                        <p>{{ $product->description }}</p>
+                        <p><span class=" @if($product->promo)old-price @else new-price @endif">${{ $product->price }}</span>
+                        @if ($product->promo)
+                        <span class="new-price">${{ round($product->price - ($product->price * $product->promo) / 100, 2) }}</span>
+                        @endif
+                        </p>
+                        <button class="custom-button">Purchase</button>
+                    </div>
+                </div>
+                @endforeach
+                {{-- <div class="ccarousel-item on">
                     <img src="{{ asset('img/globals/featured1.png') }}" alt="">
                     <div>
                         <h1>Reverse Mocha</h1>
@@ -198,13 +221,13 @@
                         <p><span class="old-price">$99.99</span><span class="new-price">$79.99</span></p>
                         <button class="custom-button">Purchase</button>
                     </div>
-                </div>
-                <div class="ccarousel-item">
+                </div> --}}
+                {{-- <div class="ccarousel-item">
                     <h1>Item 3</h1>
                 </div>
                 <div class="ccarousel-item prev">
                     <h1>Item 4</h1>
-                </div>
+                </div> --}}
 
             </div>
         </div>

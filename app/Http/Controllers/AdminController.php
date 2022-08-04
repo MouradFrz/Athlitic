@@ -69,6 +69,7 @@ class AdminController extends Controller
         $product->for = $request->for;
         $product->price = $request->price;
         $product->image = $newImageName;
+        $product->featured = 0;
         $product->collection = $request->collection;
 
         $product->save();
@@ -160,6 +161,7 @@ class AdminController extends Controller
             $collection->name = $request->name;
             $collection->description = $request->description;
             $collection->image = $collectionImageName;
+            $collection->featured = 0;
             $collection->created_at = now();
             $collection->save();
         } catch (Exception $e) {
@@ -188,8 +190,6 @@ class AdminController extends Controller
         ]);
 
         $collection = Collection::find($request->id);
-
-
 
         $collection->name = $request->name;
         $collection->description = $request->description;
@@ -244,8 +244,12 @@ class AdminController extends Controller
         return $order;
     }
     public function HomepageManagement()
-    {
-        return view('admin.HomepageManagement', ['featured' => Collection::where('featured', '!=', '0')->get(), 'collections' => Collection::all()]);
+    {   
+        return view('admin.HomepageManagement', ['featured' => Collection::where('featured', '!=', '0')->get(),
+         'collections' => Collection::all(),
+         'products'=>Product::all()        ,
+         'featuredProducts'=>Product::where('featured','!=','0')->get()
+        ]);
     }
     public function EditSlotValue(Request $request)
     {
@@ -260,7 +264,18 @@ class AdminController extends Controller
             $newCollection->save();
         }
         
-      
         return to_route('admin.HomepageManagement')->with('success','Slot edited succesfully');
+    }
+    public function AddFeaturedProduct(Request $request){
+        $request->validate([
+            'product'=>'required'
+        ]);
+
+        Product::find($request->product)->update(['featured'=>1]);
+        return redirect()->back()->with('success', 'Product added to homepage successfully!');
+    }
+    public function RemoveFeaturedProduct(Product $product){
+        $product->update(['featured'=>'0']);
+        return redirect()->back()->with('success', 'Product removed from homepage successfully!');
     }
 }

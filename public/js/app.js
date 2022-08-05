@@ -21855,6 +21855,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/products.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/products.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/verifyemail.scss":
 /*!*****************************************!*\
   !*** ./resources/sass/verifyemail.scss ***!
@@ -22282,6 +22295,7 @@ process.umask = function() { return 0; };
 /******/ 			"sass/collectionmanagement": 0,
 /******/ 			"sass/ProductsManagement": 0,
 /******/ 			"css/app": 0,
+/******/ 			"sass/products": 0,
 /******/ 			"sass/orders": 0,
 /******/ 			"sass/StockManagement": 0,
 /******/ 			"sass/collectiondetails": 0,
@@ -22335,18 +22349,19 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/homepage.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/login.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/adminlayout.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/ProductsManagement.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/collectionmanagement.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/ProductDetails.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/collectiondetails.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/StockManagement.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/orders.scss")))
-/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/verifyemail.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/homepage.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/login.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/adminlayout.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/ProductsManagement.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/collectionmanagement.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/ProductDetails.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/collectiondetails.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/StockManagement.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/orders.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/products.scss")))
+/******/ 	__webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/sass/verifyemail.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["sass/adminlayout","sass/login","sass/homepage","sass/verifyemail","sass/collectionmanagement","sass/ProductsManagement","css/app","sass/products","sass/orders","sass/StockManagement","sass/collectiondetails","sass/ProductDetails"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

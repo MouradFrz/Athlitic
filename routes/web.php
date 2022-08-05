@@ -48,6 +48,7 @@ Route::prefix('user')->name('user.')->controller(UserController::class)->group(f
     });
     Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
         Route::get('logout','logout')->name('logout');
+        Route::get('shop','shop')->name('shop');
     });
 });
 

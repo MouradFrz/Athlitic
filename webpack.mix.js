@@ -23,4 +23,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/collectiondetails.scss','public/sass')
     .sass('resources/sass/StockManagement.scss','public/sass')
     .sass('resources/sass/orders.scss','public/sass')
+    .sass('resources/sass/products.scss','public/sass')
     .sass('resources/sass/verifyemail.scss','public/sass');

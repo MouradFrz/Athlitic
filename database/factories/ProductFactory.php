@@ -21,6 +21,7 @@ class ProductFactory extends Factory
             'description'=>$this->faker->paragraph,
             'image'=>'1659275645.png',
             'promo'=>0,
+            'featured'=>0,
             'price'=>55,
             'category'=>'Pants',
             'for'=>'Men',

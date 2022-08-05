@@ -84,7 +84,7 @@
                 <div>
                     <h1>{{ $product->name }}</h1>
                     <p>{{ $product->description }}</p>
-                    <p><span class=" @if($product->promo)old-price @else new-price @endif">${{ $product->price }}</span>
+                    <p><span class="@if($product->promo) old-price @else new-price m-0 @endif">${{ $product->price }}</span>
                     @if ($product->promo)
                     <span class="new-price">${{ round($product->price - ($product->price * $product->promo) / 100, 2) }}</span>
                     @endif

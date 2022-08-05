@@ -56,4 +56,32 @@ class UserController extends Controller
         Auth::guard('web')->logout();
         return redirect()->route('home');
     }
+
+    public function shop(Request $request){
+        $gen = false;
+        if(($request->Men) || ($request->Women) ||($request->Kids)){
+            $gen = true;
+        }
+        $array = [($request->Men)?'Men':'',($request->Women?'Women':''),($request->Kids)?'Kids':''];
+        $products = Product::where('name','LIKE',($request->keyword) ? '%'.$request->keyword.'%' : '%')
+        ->whereIN('for',($gen)?$array:['Men','Women','Kids'])
+        // ->where('collection',($request->collection) ? $request->collection : null )
+        // ->orWhere('collection','LIKE',($request->collection) ? $request->collection : '%' )
+        ->where(function($query) use ($request){
+            $query->where('collection',($request->collection) ? $request->collection : null )
+            ->orWhere('collection','LIKE',($request->collection) ? $request->collection : '%' );
+        })
+        ->where('price','>=',($request->minprice) ? $request->minprice : 0 )
+        ->where('price','<=',($request->maxprice) ? $request->maxprice : 9999999999 )
+        ->where('promo','!=',($request->onsale) ? 0 : -1 )
+        ->paginate(12)->appends(request()->query());;
+
+
+
+    
+        return view('user.products',[
+            'products'=>$products,
+            'collections'=>Collection::all()
+        ]);
+    }
 }

@@ -1,0 +1,121 @@
+.global-wrapper {
+  background-color: #EEF8F8;
+  padding-bottom: 140px;
+}
+.global-wrapper .header h1 {
+  padding: 3rem 0;
+  margin: 0;
+}
+
+.close-button {
+  all: unset;
+  background-color: #EEF8F8;
+  color: #FC7171;
+  padding: 6px 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+  -webkit-box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+  -moz-box-shadow: -2px 1px 81px -37px rgba(0, 0, 0, 0.67);
+  transition: 0.1s ease;
+}
+.close-button:hover {
+  color: black;
+  background-color: #DDFAFA;
+}
+
+.page-item.active .page-link {
+  color: white;
+  background-color: #FC7171;
+  border: 1px solid #FC7171;
+}
+
+.page-link {
+  color: #FC7171;
+}
+.page-link:hover {
+  background-color: #EEF8F8;
+  color: #fc8383;
+}
+.page-link:focus {
+  color: #FC7171;
+  box-shadow: none;
+}
+
+p.small.text-muted {
+  margin: 0;
+}
+
+.main-content {
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  display: flex;
+  gap: 1rem;
+}
+.main-content .results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 2rem 0;
+}
+.main-content .filter {
+  position: -webkit-sticky;
+  position: sticky;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  top: 20px;
+  left: 0;
+  width: 300px;
+  background-color: rgb(245, 252, 252);
+  padding: 1rem;
+  box-shadow: -2px 1px 81px -60px rgba(0, 0, 0, 0.67);
+  -webkit-box-shadow: -2px 1px 81px -60px rgba(0, 0, 0, 0.67);
+  -moz-box-shadow: -2px 1px 81px -60px rgba(0, 0, 0, 0.67);
+}
+.main-content .products-wrapper {
+  background-color: rgb(245, 252, 252);
+  width: 100%;
+  padding: 2rem 1rem;
+  box-shadow: -2px 1px 81px -60px rgba(0, 0, 0, 0.67);
+  -webkit-box-shadow: -2px 1px 81px -60px rgba(0, 0, 0, 0.67);
+  -moz-box-shadow: -2px 1px 81px -60px rgba(0, 0, 0, 0.67);
+}
+.main-content .products {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.main-content .products img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-content .products .buttons {
+  display: flex;
+  gap: 10px;
+}
+.main-content .products .product {
+  width: 32%;
+}
+.main-content .products .product h1 {
+  font-size: 1.4rem;
+}
+.main-content .products .product > div {
+  padding: 1rem;
+  background-color: #EEF8F8;
+}
+.main-content .products .product .old-price {
+  text-decoration: line-through !important;
+}
+.main-content .products .product .new-price {
+  font-size: 1.5rem;
+  color: green;
+  margin-left: 10px;
+}

@@ -63,6 +63,7 @@ padding: 4px 8px;
         align-items: center;
         .dropdown{
             display: none;
+      
         }
         .link button {
             background-color:$softblue;
@@ -83,13 +84,17 @@ padding: 4px 8px;
 }
 .link button:focus ~ .dropdown{
     display: flex;
+    box-shadow: -2px 1px 81px -40px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: -2px 1px 81px -40px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: -2px 1px 81px -40px rgba(0, 0, 0, 0.67);
+    border-radius: 2px;
+    width: 400px;
 }
 .link .dropdown{
-    background-color:$lightgray !important;
+    background-color: rgb(245, 252, 252)!important; 
     position: absolute;
     z-index: 10;
-    left: 50%;
-    transform: translateX(-50%);
+    padding: 1rem 0;
     ul li:nth-child(1){
         font-size: 1.6rem;
     }

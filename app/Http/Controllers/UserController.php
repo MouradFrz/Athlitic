@@ -108,4 +108,8 @@ class UserController extends Controller
 
         return [Cart::content(), Cart::count(), Cart::subtotal()];
     }
+    public function RemoveFromCart(Request $request){
+        Cart::remove($request->id);
+        return [Cart::content(), Cart::count(), Cart::subtotal()];
+    }   
 }

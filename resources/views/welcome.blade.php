@@ -21,7 +21,7 @@
                             <h1>{{ $collection->name }}</h1>
 
                             <p>{{ $collection->description }}</p>
-                            <button class="custom-button">Explore!</button>
+                            <a href="{{ route('user.shop').'?collection='.$collection->id }}" class="custom-button">Explore!</a>
                         </div>
                     @endif
                 @endforeach
@@ -30,7 +30,7 @@
                         <div>
                             <h1>{{ $collection->name }}</h1>
                             <p>{{ $collection->description }}</p>
-                            <button class="custom-button mb-4">Explore!</button>
+                            <a href="{{ route('user.shop').'?collection='.$collection->id }}" class="custom-button">Explore!</a>
                             <img class="presented-img" src="{{ asset('img/collections/' . $collection->image) }}"
                                 alt="">
                         </div>
@@ -45,7 +45,7 @@
                             <h1>{{ $collection->name }}</h1>
 
                             <p>{{ $collection->description }}</p>
-                            <button class="custom-button">Explore!</button>
+                            <a href="{{ route('user.shop').'?collection='.$collection->id }}" class="custom-button">Explore!</a>
                         </div>
                     @endif
                 @endforeach

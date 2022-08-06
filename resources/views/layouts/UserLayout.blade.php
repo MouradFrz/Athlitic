@@ -50,6 +50,7 @@
                                                 {{ $item->qty }}
                                             </td>
                                             <td>${{ $item->priceTotal }}</td>
+                                            <td><button class="close-button remove-item" onclick="removeItem(this)" data-id="{{ $item->rowId }}"><i class="bi bi-x-lg"></i></button></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -156,8 +157,8 @@
                         </ul>
                     </div>
                 </div>
-                <form action="" style="margin-left:auto">
-                    <input type="search" class="custom-input" placeholder="Search for an item ...">
+                <form action="{{ route('user.shop') }}" style="margin-left:auto">
+                    <input type="search" class="custom-input" name="keyword" placeholder="Search for an item ...">
                     <button class="custom-button"><i class="bi bi-search"></i></button>
                 </form>
             </div>
@@ -237,7 +238,6 @@
                 axios.post('add-to-cart', {
                     id: e.dataset.id,
                 }).then((res) => {
-
                     if (res.status == 200) {
                         body.textContent = ''
                         Object.values(res.data[0]).forEach(e => {
@@ -250,7 +250,8 @@
                                             <td>
                                                 ${ e.qty }
                                             </td>
-                                            <td>$${ Math.round(e.price*e.qty*100)/100 }</td>`
+                                            <td>$${ Math.round(e.price*e.qty*100)/100 }</td>
+                                            <td><button class="close-button remove-item" onclick="removeItem(this)" data-id="${ e.rowId }"><i class="bi bi-x-lg"></i></button></td>`
 
                             body.appendChild(tuple)
                         })
@@ -274,6 +275,50 @@
                 })
             })
         })
+    </script>
+
+    <script>
+        function removeItem(e){
+                axios.post('remove-from-cart', {
+                    id: e.dataset.id,
+                }).then((res) => {
+                    
+                    if (res.status == 200) {
+                        body.textContent = ''
+                        Object.values(res.data[0]).forEach(e => {
+
+                            let tuple = document.createElement('tr')
+                            tuple.innerHTML = ` <td>
+                                                ${ e.name }
+                                            </td>
+                                            <td>$${ e.price }</td>
+                                            <td>
+                                                ${ e.qty }
+                                            </td>
+                                            <td>$${ Math.round(e.price*e.qty*100)/100 }</td>
+                                            <td><button class="close-button remove-item" onclick="removeItem(this)" data-id="${ e.rowId }"><i class="bi bi-x-lg"></i></button></td>`
+
+                            body.appendChild(tuple)
+                        })
+
+                        Toastify({
+                            text: "Item removed",
+                            duration: 3000,
+                            position: 'center',
+                            close: true,
+                            style: {
+                                background: "#FC7171",
+                            },
+                        }).showToast();
+                        totalprice.textContent =`Total : $${Math.round(res.data[2]*100)/100}` 
+                        document.querySelector('.cart-count').textContent = res.data[1]
+                        document.querySelector('.cart-count-inside').textContent = res.data[1] +
+                            ' Items'
+                    } else {
+                        console.log(res.status)
+                    }
+                })
+            }
     </script>
     @yield('script')
 

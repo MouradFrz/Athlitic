@@ -42,6 +42,7 @@ Route::middleware(['PreventBackHistory'])->get('/',[UserController::class,'welco
 Route::prefix('user')->name('user.')->controller(UserController::class)->group(function(){
     Route::middleware('PreventBackHistory')->group(function(){
         Route::post('add-to-cart','AddToCart')->name('AddToCart');
+        Route::post('remove-from-cart','RemoveFromCart')->name('RemoveFromCart');
         Route::get('shop','shop')->name('shop');
         Route::middleware(['guest:web'])->group(function(){
             Route::get('login','LoginPage')->name('login');

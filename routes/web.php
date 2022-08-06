@@ -40,16 +40,20 @@ Route::middleware(['PreventBackHistory'])->get('/',[UserController::class,'welco
 
 
 Route::prefix('user')->name('user.')->controller(UserController::class)->group(function(){
-    Route::middleware(['guest:web','PreventBackHistory'])->group(function(){
-        Route::get('login','LoginPage')->name('login');
-        Route::get('register','RegisterPage')->name('register');
-        Route::post('create','create')->name('create');
-        Route::post('check','check')->name('check');
-    });
-    Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
-        Route::get('logout','logout')->name('logout');
+    Route::middleware('PreventBackHistory')->group(function(){
+        Route::post('add-to-cart','AddToCart')->name('AddToCart');
         Route::get('shop','shop')->name('shop');
+        Route::middleware(['guest:web'])->group(function(){
+            Route::get('login','LoginPage')->name('login');
+            Route::get('register','RegisterPage')->name('register');
+            Route::post('create','create')->name('create');
+            Route::post('check','check')->name('check');
+        });
+        Route::middleware(['auth:web'])->group(function(){
+            Route::get('logout','logout')->name('logout');
+        });
     });
+    
 });
 
 Route::prefix('admin')->name('admin.')->controller(AdminController::class)->group(function(){

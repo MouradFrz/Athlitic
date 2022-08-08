@@ -112,4 +112,13 @@ class UserController extends Controller
         Cart::remove($request->id);
         return [Cart::content(), Cart::count(), Cart::subtotal()];
     }   
+    public function checkout(){
+
+        if(Cart::subtotal()!=0){
+            return view('user.redirectToCheckout');
+        }else{
+            return redirect()->route('user.shop');
+        }
+        
+    }
 }

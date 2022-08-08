@@ -2,7 +2,7 @@
 
 @section('meta')
     <title>Shop</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
     <link rel="stylesheet" href="{{ asset('sass/products.css') }}">
 @endsection
 

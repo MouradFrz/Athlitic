@@ -33,6 +33,11 @@ nav {
   color: #3a3a3a;
 }
 
+#checkout-button:disabled {
+  background-color: rgb(207, 207, 207);
+  color: #FC7171;
+}
+
 .custom-input {
   outline: none;
   border: 1px solid gray;

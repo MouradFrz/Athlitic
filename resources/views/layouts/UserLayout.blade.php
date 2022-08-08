@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     @yield('meta')
 </head>
 
@@ -50,7 +51,9 @@
                                                 {{ $item->qty }}
                                             </td>
                                             <td>${{ $item->priceTotal }}</td>
-                                            <td><button class="close-button remove-item" onclick="removeItem(this)" data-id="{{ $item->rowId }}"><i class="bi bi-x-lg"></i></button></td>
+                                            <td><button class="close-button remove-item" onclick="removeItem(this)"
+                                                    data-id="{{ $item->rowId }}"><i class="bi bi-x-lg"></i></button>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -62,7 +65,8 @@
                     </ul>
                     <div class="d-flex justify-content-between mt-3 align-items-center">
                         <p class="m-0 totalprice">Total : ${{ $total }}</p>
-                        <button class="custom-button">Checkout</button>
+                        <form action="{{ route('user.checkout') }}"><button class="custom-button"
+                                id="checkout-button">Checkout</button></form>
                     </div>
                 </div>
             </div>
@@ -230,6 +234,13 @@
         integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        const checkoutbutton = document.querySelector('#checkout-button')
+        let count = '{{ $cartCount }}'
+        if (!parseInt(count)) {
+            checkoutbutton.disabled = true
+        }
+    </script>
+    <script>
         const btns = document.querySelectorAll('.add-to-cart-btn')
         const body = document.querySelector('.table-body')
         const totalprice = document.querySelector('.totalprice')
@@ -243,7 +254,8 @@
                         Object.values(res.data[0]).forEach(e => {
 
                             let tuple = document.createElement('tr')
-                            tuple.innerHTML = ` <td>
+                            tuple.innerHTML =
+                                ` <td>
                                                 ${ e.name }
                                             </td>
                                             <td>$${ e.price }</td>
@@ -265,10 +277,11 @@
                                 background: "#FC7171",
                             },
                         }).showToast();
-                        totalprice.textContent =`Total : $${Math.round(res.data[2]*100)/100}` 
+                        totalprice.textContent = `Total : $${Math.round(res.data[2]*100)/100}`
                         document.querySelector('.cart-count').textContent = res.data[1]
                         document.querySelector('.cart-count-inside').textContent = res.data[1] +
                             ' Items'
+                            checkoutbutton.disabled = false
                     } else {
                         console.log(res.status)
                     }
@@ -278,17 +291,18 @@
     </script>
 
     <script>
-        function removeItem(e){
-                axios.post('remove-from-cart', {
-                    id: e.dataset.id,
-                }).then((res) => {
-                    
-                    if (res.status == 200) {
-                        body.textContent = ''
-                        Object.values(res.data[0]).forEach(e => {
+        function removeItem(e) {
+            axios.post('http://localhost:8000/user/remove-from-cart', {
+                id: e.dataset.id,
+            }).then((res) => {
 
-                            let tuple = document.createElement('tr')
-                            tuple.innerHTML = ` <td>
+                if (res.status == 200) {
+                    body.textContent = ''
+                    Object.values(res.data[0]).forEach(e => {
+
+                        let tuple = document.createElement('tr')
+                        tuple.innerHTML =
+                            ` <td>
                                                 ${ e.name }
                                             </td>
                                             <td>$${ e.price }</td>
@@ -298,28 +312,35 @@
                                             <td>$${ Math.round(e.price*e.qty*100)/100 }</td>
                                             <td><button class="close-button remove-item" onclick="removeItem(this)" data-id="${ e.rowId }"><i class="bi bi-x-lg"></i></button></td>`
 
-                            body.appendChild(tuple)
-                        })
+                        body.appendChild(tuple)
+                    })
 
-                        Toastify({
-                            text: "Item removed",
-                            duration: 3000,
-                            position: 'center',
-                            close: true,
-                            style: {
-                                background: "#FC7171",
-                            },
-                        }).showToast();
-                        totalprice.textContent =`Total : $${Math.round(res.data[2]*100)/100}` 
-                        document.querySelector('.cart-count').textContent = res.data[1]
-                        document.querySelector('.cart-count-inside').textContent = res.data[1] +
-                            ' Items'
-                    } else {
-                        console.log(res.status)
-                    }
-                })
-            }
+                    Toastify({
+                        text: "Item removed",
+                        duration: 3000,
+                        position: 'center',
+                        close: true,
+                        style: {
+                            background: "#FC7171",
+                        },
+                    }).showToast();
+                    totalprice.textContent = `Total : $${Math.round(res.data[2]*100)/100}`
+                    document.querySelector('.cart-count').textContent = res.data[1]
+                    document.querySelector('.cart-count-inside').textContent = res.data[1] +
+                        ' Items'
+                        if(!res.data[1]){
+                            checkoutbutton.disabled=true
+                        }
+                } else {
+                    console.log(res.status)
+                }
+            })
+        }
     </script>
+
+
+
+
     @yield('script')
 
 </body>

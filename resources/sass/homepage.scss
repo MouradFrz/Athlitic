@@ -30,6 +30,10 @@ nav {
         color: $darkgray;
     }
 }
+#checkout-button:disabled{
+    background-color: rgb(207, 207, 207);
+    color: $red;
+}
 .custom-input{
     outline: none;
            

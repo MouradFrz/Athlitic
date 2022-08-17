@@ -217,9 +217,10 @@ nav {
 .latest-release div div .presented-img {
   width: 100%;
   z-index: 10;
-  max-height: 350px;
+  height: 350px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 5px;
 }
 
 .latest-release {

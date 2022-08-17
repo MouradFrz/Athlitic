@@ -52,7 +52,7 @@ Route::prefix('user')->name('user.')->controller(UserController::class)->group(f
         });
         Route::middleware(['auth:web'])->group(function(){
             Route::get('logout','logout')->name('logout');
-            Route::get('checkout','checkout')->name('checkout');
+            Route::get('checkout','checkout')->middleware('verified')->name('checkout');
         });
     });
     

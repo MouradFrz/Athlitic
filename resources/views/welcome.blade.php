@@ -31,7 +31,7 @@
                             <h1>{{ $collection->name }}</h1>
                             <p>{{ $collection->description }}</p>
                             <a href="{{ route('user.shop').'?collection='.$collection->id }}" class="custom-button">Explore!</a>
-                            <img class="presented-img" src="{{ asset('img/collections/' . $collection->image) }}"
+                            <img class="presented-img" style="margin-top:20px" src="{{ asset('img/collections/' . $collection->image) }}"
                                 alt="">
                         </div>
                     @endif
